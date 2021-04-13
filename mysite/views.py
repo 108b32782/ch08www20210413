@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from mysite import models
+from mysite import models, forms
 
 
 # Create your views here.
@@ -59,3 +59,7 @@ def posting(request):
         message = '成功儲存! 請記得你的編輯密碼[{}]!'.format(user_pass)
 
     return render(request, 'posting.html', locals())
+
+def contact(request):
+    form = forms.ContactForm()
+    return render(request, 'contact.html', locals())
